@@ -157,7 +157,7 @@ struct CardView: View {
                     lastStoredOffset = offset
                 }
         )
-        .animation(.easeInOut, value: offset == 0)
+        .animation(.easeInOut, value: offset == 0 || offset == -100)
         .onChange(of: gestureOffset) {
             _ in
             // to make swipe gesture only from right to left

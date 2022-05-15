@@ -10,6 +10,11 @@ import SwiftUI
 struct CustomTabCurve: Shape {
     var curveAxis: CGFloat
     
+    var animatableData: CGFloat {
+        get {return curveAxis}
+        set {curveAxis = newValue}
+    }
+    
     func path(in rect: CGRect) -> Path {
         return Path { path in
             
@@ -26,6 +31,7 @@ struct CustomTabCurve: Shape {
             // bottom right (minus 100)
             let pt4 = CGPoint(x: 0, y: height)
             
+            // Create a clip, but adding radius on the bottom
             path.move(to: pt1)
             path.addArc(tangent1End: pt1, tangent2End: pt2, radius: 0)
             path.addArc(tangent1End: pt2, tangent2End: pt3, radius: 0)
